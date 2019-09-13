@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>标签：Js - 小蚀月</title>
+  <title>JQuery源码分析————&#34;链式调用&#34; - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,17 +11,18 @@
   
 
   <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-  <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
-<meta name="keywords" content="小蚀月,蚀月,小蚀月的个人博客,小蚀月的博客,蚀月的博客,前端小蚀月,前端蚀月">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小蚀月">
-<meta property="og:url" content="https://unluna.github.io/tags/Js/index.html">
+  <meta name="description" content="上代码var s = {   a:function () {     console.log(&amp;apos;1&amp;apos;);     return this;   },   b:function () {     console.log(&amp;apos;2&amp;apos;);     return this;   },   c:function () {     console.log(&amp;apos;3&amp;a">
+<meta name="keywords" content="JQ,源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery源码分析————&quot;链式调用&quot;">
+<meta property="og:url" content="https://unluna.github.io/2019/08/11/JavaScript/jQuery/链式调用/index.html">
 <meta property="og:site_name" content="小蚀月">
-<meta property="og:description" content="小蚀月的个人博客，这里记录着他的日常">
+<meta property="og:description" content="上代码var s = {   a:function () {     console.log(&amp;apos;1&amp;apos;);     return this;   },   b:function () {     console.log(&amp;apos;2&amp;apos;);     return this;   },   c:function () {     console.log(&amp;apos;3&amp;a">
 <meta property="og:locale" content="cn">
+<meta property="og:updated_time" content="2019-09-13T13:09:54.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小蚀月">
-<meta name="twitter:description" content="小蚀月的个人博客，这里记录着他的日常">
+<meta name="twitter:title" content="JQuery源码分析————&quot;链式调用&quot;">
+<meta name="twitter:description" content="上代码var s = {   a:function () {     console.log(&amp;apos;1&amp;apos;);     return this;   },   b:function () {     console.log(&amp;apos;2&amp;apos;);     return this;   },   c:function () {     console.log(&amp;apos;3&amp;a">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -29,7 +30,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568380362401">
+  <link rel="stylesheet" href="/css/style.css?v=1568380362490">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -159,57 +160,73 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <section class="nexmoe-posts" id="brand-waterfall">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="/images/bg-img.png">
+        
+        <h1>JQuery源码分析————&#34;链式调用&#34;</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月11日</a>
+    <a><i class="nexmoefont icon-areachart"></i>40 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/07/01/JavaScript/继承/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="/images/bg-img.png" alt="JavaScript的ES5继承方式">
-                
-                <h1>JavaScript的ES5继承方式</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月01日</a>
-            <a><i class="nexmoefont icon-areachart"></i>112 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Js基础/">Js基础</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/Js/">Js</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/基础/">基础</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/面试/">面试</a>
-            
-        </div>
-        <article>
-            
-            <h2 id="红皮书上有好多继承的方式，有时间再一一列举吧，不过无论有多少种继承方式，最优的只有下面这一种："><a href="#红皮书上有好多继承的方式，有时间再一一列举吧，不过无论有多少种继承方式，最优的只有下面这一种：" class="headerlink" title="红皮书上有好多继承的方式，有时间再一一列举吧，不过无论有多少种继承方式，最优的只有下面这一种："></a>红皮书上有好多继承的方式，有时间再一一列举吧，<br>不过无论有多少种继承方式，最优的只有下面这一种：</h2><pre><code>function plane(color) {
-    this.color = color;
-}
-
-plane.prototype.sayColor = function (color) {
-    console.log(this.color);
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/JQuery源码分析/">JQuery源码分析</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/JQ/">JQ</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/源码/">源码</a>
+    
+  </div>
+  <article>
+    <h1 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h1><pre><code>var s = {
+  a:function () {
+    console.log(&apos;1&apos;);
+    return this;
+  },
+  b:function () {
+    console.log(&apos;2&apos;);
+    return this;
+  },
+  c:function () {
+    console.log(&apos;3&apos;);
+    return this;
+  }
 };
-
-function fiter(color) {
-    plane.call(this, color);
-}
-
-let __proto = Object.create(plane.prototype);
-__proto.constructor = fiter;
-fiter.prototype = __proto;
-
-let haha = new fiter(&quot;red&quot;);
-
-haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.create克隆原型，再赋过去，改一下constructor指向。</strong></p>
+s.a().b().c();</code></pre><p><strong>return this 巧吧！</strong></p>
 <hr>
 
-            
-        </article>
-    </div>
+  </article>
+  
     
-</section>
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>小蚀月<br>
+<strong>本文链接：</strong><a href="https://unluna.github.io/2019/08/11/JavaScript/jQuery/链式调用/" title="https://unluna.github.io/2019/08/11/JavaScript/jQuery/链式调用/" target="_blank" rel="noopener">https://unluna.github.io/2019/08/11/JavaScript/jQuery/链式调用/</a><br>
 
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'Iv1.15e7ee31842f646b',
+        clientSecret: 'bc3a2418151638a071adc95709bf2da3b230573c',
+        id: window.location.pathname,
+        repo: 'unluna.github.io',
+        owner: 'unluna',
+        admin: 'unluna'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
@@ -225,7 +242,7 @@ haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568380362407"></script>
+<script src="/js/app.js?v=1568380362493"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

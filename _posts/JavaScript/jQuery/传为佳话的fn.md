@@ -31,3 +31,4 @@ categories: JQuery源码分析
 - jQuery.fn.extend({}) 给jq添加方法，做插件的时候用，挂载到jq的原型上
 - 如果直接在jQuery.extend({})上添加方法，就是jQuery的属性了，不推荐
 
+***
