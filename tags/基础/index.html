@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>文章归档 - 小蚀月</title>
+  <title>标签：基础 - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,7 +15,7 @@
 <meta name="keywords" content="小蚀月,蚀月,小蚀月的个人博客,小蚀月的博客,蚀月的博客,前端小蚀月,前端蚀月">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小蚀月">
-<meta property="og:url" content="https://unluna.github.io/archives/index.html">
+<meta property="og:url" content="https://unluna.github.io/tags/基础/index.html">
 <meta property="og:site_name" content="小蚀月">
 <meta property="og:description" content="小蚀月的个人博客，这里记录着他的日常">
 <meta property="og:locale" content="cn">
@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568373161011">
+  <link rel="stylesheet" href="/css/style.css?v=1568373161131">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -155,56 +155,6 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
-        <a href="/2019/08/08/JavaScript/jQuery/传为佳话的fn/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="/images/bg-img.png" alt="JQuery源码分析————&#34;传为佳话的fn&#34;">
-                
-                <h1>JQuery源码分析————&#34;传为佳话的fn&#34;</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月08日</a>
-            <a><i class="nexmoefont icon-areachart"></i>164 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/JQuery源码分析/">JQuery源码分析</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/JQ/">JQ</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/源码/">源码</a>
-            
-        </div>
-        <article>
-            
-            <h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><pre><code>(function (window, undefined) {
-    // 绕了一圈，就是为了把jQuery.fn上的方法暴露出去
-    var jQuery = function (selector,context) {
-
-    return new jQuery.fn.init(selector,context)
-};
-jQuery.fn=jQuery.prototype={
-  init:function (selector,context) {
-
-  }
-};
-jQuery.fn.init.prototype=jQuery.fn;
-
-})(window);</code></pre><h3 id="jQuery和fn和init等来等去，其实就是为了把fn上的方法暴露出去"><a href="#jQuery和fn和init等来等去，其实就是为了把fn上的方法暴露出去" class="headerlink" title="jQuery和fn和init等来等去，其实就是为了把fn上的方法暴露出去"></a>jQuery和fn和init等来等去，其实就是为了把fn上的方法暴露出去</h3><ul>
-<li>相当于jQuery.fn.init.prototype = jQuery.fn = jQuery.prototype</li>
-<li>也就是jQuery.fn.init.prototype = jQuery.prototype</li>
-<li>也就是jQuery.fn.init = jQuery</li>
-</ul>
-<p><font style="color:red">注意：</font>最后真正暴露的不是fn，是extend</p>
-<h3 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h3><ul>
-<li>jQuery.fn.extend({}) 给jq添加方法，做插件的时候用，挂载到jq的原型上</li>
-<li>如果直接在jQuery.extend({})上添加方法，就是jQuery的属性了，不推荐</li>
-</ul>
-
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
         <a href="/2019/07/01/JavaScript/继承/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
@@ -267,7 +217,7 @@ haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568373161016"></script>
+<script src="/js/app.js?v=1568373161134"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

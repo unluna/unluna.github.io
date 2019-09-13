@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>文章归档 - 小蚀月</title>
+  <title>分类：JQuery源码分析 - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,7 +15,7 @@
 <meta name="keywords" content="小蚀月,蚀月,小蚀月的个人博客,小蚀月的博客,蚀月的博客,前端小蚀月,前端蚀月">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小蚀月">
-<meta property="og:url" content="https://unluna.github.io/archives/index.html">
+<meta property="og:url" content="https://unluna.github.io/categories/JQuery源码分析/index.html">
 <meta property="og:site_name" content="小蚀月">
 <meta property="og:description" content="小蚀月的个人博客，这里记录着他的日常">
 <meta property="og:locale" content="cn">
@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568373161011">
+  <link rel="stylesheet" href="/css/style.css?v=1568373161115">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -204,52 +204,6 @@ jQuery.fn.init.prototype=jQuery.fn;
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="/2019/07/01/JavaScript/继承/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="/images/bg-img.png" alt="JavaScript的ES5继承方式">
-                
-                <h1>JavaScript的ES5继承方式</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月01日</a>
-            <a><i class="nexmoefont icon-areachart"></i>112 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Js基础/">Js基础</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/Js/">Js</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/基础/">基础</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/面试/">面试</a>
-            
-        </div>
-        <article>
-            
-            <h2 id="红皮书上有好多继承的方式，有时间再一一列举吧，不过无论有多少种继承方式，最优的只有下面这一种："><a href="#红皮书上有好多继承的方式，有时间再一一列举吧，不过无论有多少种继承方式，最优的只有下面这一种：" class="headerlink" title="红皮书上有好多继承的方式，有时间再一一列举吧，不过无论有多少种继承方式，最优的只有下面这一种："></a>红皮书上有好多继承的方式，有时间再一一列举吧，<br>不过无论有多少种继承方式，最优的只有下面这一种：</h2><pre><code>function plane(color) {
-    this.color = color;
-}
-
-plane.prototype.sayColor = function (color) {
-    console.log(this.color);
-};
-
-function fiter(color) {
-    plane.call(this, color);
-}
-
-let __proto = Object.create(plane.prototype);
-__proto.constructor = fiter;
-fiter.prototype = __proto;
-
-let haha = new fiter(&quot;red&quot;);
-
-haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.create克隆原型，再赋过去，改一下constructor指向。</strong></p>
-
-            
-        </article>
-    </div>
-    
 </section>
 
     </div>
@@ -267,7 +221,7 @@ haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568373161016"></script>
+<script src="/js/app.js?v=1568373161119"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
