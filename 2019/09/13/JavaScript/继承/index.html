@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>Hello World - 小蚀月</title>
+  <title>JavaScript的ES5继承方式 - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="function plane(color) {     this.color = color; }  plane.prototype.sayColor = function (color) {     console.log(this.color); };  function fiter(color) {     plane.call(this, color); }  let __proto =">
 <meta name="keywords" content="小蚀月,蚀月,小蚀月的个人博客,小蚀月的博客,蚀月的博客,前端小蚀月,前端蚀月">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://unluna.github.io/2019/09/13/hello-world/index.html">
+<meta property="og:title" content="JavaScript的ES5继承方式">
+<meta property="og:url" content="https://unluna.github.io/2019/09/13/JavaScript/继承/index.html">
 <meta property="og:site_name" content="小蚀月">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="function plane(color) {     this.color = color; }  plane.prototype.sayColor = function (color) {     console.log(this.color); };  function fiter(color) {     plane.call(this, color); }  let __proto =">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-09-13T07:53:35.567Z">
+<meta property="og:updated_time" content="2019-09-13T08:46:25.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="JavaScript的ES5继承方式">
+<meta name="twitter:description" content="function plane(color) {     this.color = color; }  plane.prototype.sayColor = function (color) {     console.log(this.color); };  function fiter(color) {     plane.call(this, color); }  let __proto =">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +30,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568364430987">
+  <link rel="stylesheet" href="/css/style.css?v=1568364431020">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -119,37 +119,43 @@
         
             <img src="/images/bg-img.png">
         
-        <h1>Hello World</h1>
+        <h1>JavaScript的ES5继承方式</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月13日</a>
-    <a><i class="nexmoefont icon-areachart"></i>73 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>46 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
     
   </div>
   <article>
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+    <pre><code>function plane(color) {
+    this.color = color;
+}
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+plane.prototype.sayColor = function (color) {
+    console.log(this.color);
+};
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+function fiter(color) {
+    plane.call(this, color);
+}
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+let __proto = Object.create(plane.prototype);
+__proto.constructor = fiter;
+fiter.prototype = __proto;
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+let haha = new fiter(&quot;red&quot;);
 
+haha.sayColor();
+// console.log(haha);</code></pre>
   </article>
   
     
 <div class="nexmoe-post-copyright">
 <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
 <strong>本文作者：</strong>小蚀月<br>
-<strong>本文链接：</strong><a href="https://unluna.github.io/2019/09/13/hello-world/" title="https://unluna.github.io/2019/09/13/hello-world/" target="_blank" rel="noopener">https://unluna.github.io/2019/09/13/hello-world/</a><br>
+<strong>本文链接：</strong><a href="https://unluna.github.io/2019/09/13/JavaScript/继承/" title="https://unluna.github.io/2019/09/13/JavaScript/继承/" target="_blank" rel="noopener">https://unluna.github.io/2019/09/13/JavaScript/继承/</a><br>
 
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -189,7 +195,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568364430995"></script>
+<script src="/js/app.js?v=1568364431026"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

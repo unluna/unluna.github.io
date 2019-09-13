@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568363409805">
+  <link rel="stylesheet" href="/css/style.css?v=1568364430964">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -53,7 +53,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>1</div>
+        <div><span>文章</span>2</div>
         <div><span>标签</span>0</div>
         <div><span>分类</span>0</div>
     </div>
@@ -116,6 +116,48 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
+        <a href="/2019/09/13/JavaScript/继承/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="/images/bg-img.png" alt="JavaScript的ES5继承方式">
+                
+                <h1>JavaScript的ES5继承方式</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月13日</a>
+            <a><i class="nexmoefont icon-areachart"></i>46 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+            
+        </div>
+        <article>
+            
+            <pre><code>function plane(color) {
+    this.color = color;
+}
+
+plane.prototype.sayColor = function (color) {
+    console.log(this.color);
+};
+
+function fiter(color) {
+    plane.call(this, color);
+}
+
+let __proto = Object.create(plane.prototype);
+__proto.constructor = fiter;
+fiter.prototype = __proto;
+
+let haha = new fiter(&quot;red&quot;);
+
+haha.sayColor();
+// console.log(haha);</code></pre>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
         <a href="/2019/09/13/hello-world/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
@@ -168,7 +210,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568363409811"></script>
+<script src="/js/app.js?v=1568364430971"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
