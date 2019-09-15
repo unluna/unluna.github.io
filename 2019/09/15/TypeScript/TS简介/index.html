@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>JQuery源码分析————&#34;处理不同数量的形参&#34;（未完待续） - 小蚀月</title>
+  <title>TS的数据类型 - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-  <meta name="description" content="上代码function addMethod(obj, type, f) {  }   let old = obj[type];  // undefined   obj[type] = function () {      if (f.length === arguments.length) {       return f.apply(this, arguments);     } else {">
-<meta name="keywords" content="JQ,源码">
+  <meta name="description" content="TS的数据类型布尔类型const boln: boolean = false;字符串类型const str: string = &amp;apos;string&amp;apos;;数字类型const num: number = 123;数组类型const arr1: number[] = [1, 2, 3]; const arr2: Array&amp;lt;string&amp;gt; = [&amp;apos;a&amp;apos;, &amp;">
+<meta name="keywords" content="基础,TS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery源码分析————&quot;处理不同数量的形参&quot;（未完待续）">
-<meta property="og:url" content="https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/index.html">
+<meta property="og:title" content="TS的数据类型">
+<meta property="og:url" content="https://unluna.github.io/2019/09/15/TypeScript/TS简介/index.html">
 <meta property="og:site_name" content="小蚀月">
-<meta property="og:description" content="上代码function addMethod(obj, type, f) {  }   let old = obj[type];  // undefined   obj[type] = function () {      if (f.length === arguments.length) {       return f.apply(this, arguments);     } else {">
+<meta property="og:description" content="TS的数据类型布尔类型const boln: boolean = false;字符串类型const str: string = &amp;apos;string&amp;apos;;数字类型const num: number = 123;数组类型const arr1: number[] = [1, 2, 3]; const arr2: Array&amp;lt;string&amp;gt; = [&amp;apos;a&amp;apos;, &amp;">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-09-13T13:09:54.488Z">
+<meta property="og:updated_time" content="2019-09-15T10:24:26.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery源码分析————&quot;处理不同数量的形参&quot;（未完待续）">
-<meta name="twitter:description" content="上代码function addMethod(obj, type, f) {  }   let old = obj[type];  // undefined   obj[type] = function () {      if (f.length === arguments.length) {       return f.apply(this, arguments);     } else {">
+<meta name="twitter:title" content="TS的数据类型">
+<meta name="twitter:description" content="TS的数据类型布尔类型const boln: boolean = false;字符串类型const str: string = &amp;apos;string&amp;apos;;数字类型const num: number = 123;数组类型const arr1: number[] = [1, 2, 3]; const arr2: Array&amp;lt;string&amp;gt; = [&amp;apos;a&amp;apos;, &amp;">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +30,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568543157511">
+  <link rel="stylesheet" href="/css/style.css?v=1568543157556">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -163,58 +163,53 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-            <img src="/images/bg-img.png">
+        <img src="/images/TS简介.png">
         
-        <h1>JQuery源码分析————&#34;处理不同数量的形参&#34;（未完待续）</h1>
+        <h1>TS的数据类型</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月09日</a>
-    <a><i class="nexmoefont icon-areachart"></i>94 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月15日</a>
+    <a><i class="nexmoefont icon-areachart"></i>380 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/JQuery源码分析/">JQuery源码分析</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/JQ/">JQ</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/源码/">源码</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/TS/">TS</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/基础/">基础</a>
     
   </div>
   <article>
-    <h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><pre><code>function addMethod(obj, type, f) {
+    <h1 id="TS的数据类型"><a href="#TS的数据类型" class="headerlink" title="TS的数据类型"></a>TS的数据类型</h1><h2 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h2><pre><code>const boln: boolean = false;</code></pre><h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><pre><code>const str: string = &apos;string&apos;;</code></pre><h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><pre><code>const num: number = 123;</code></pre><h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><pre><code>const arr1: number[] = [1, 2, 3];
+const arr2: Array&lt;string&gt; = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</code></pre><p><strong>这里我更喜欢第二种，看起来有科技感</strong></p>
+<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><pre><code>enum Colors {Red = 5, Green = 10, Yellow = 20};
+const colorName: string = Colors[5]; // &quot;Red&quot;
+const colorIndex: Colors = Colors.Green; // 10</code></pre><ul>
+<li>枚举么，我对它的理解就是map，每一个成员都有值是最好的，不赋值的话就没什么意义了</li>
+<li>如果不赋值，其中一个是数字的话，后面的会递增+1</li>
+<li>如果都不赋值，会得到索引</li>
+<li>如果其中一个是字符串还不赋值，TS会报错</li>
+</ul>
+<h2 id="任意数据类型"><a href="#任意数据类型" class="headerlink" title="任意数据类型"></a>任意数据类型</h2><pre><code>let notSure: any = &apos;123&apos;;
+notSure = 123;
+const arr3: Array&lt;any&gt; = [&apos;1&apos;, 2, true];</code></pre><h2 id="空数据类型"><a href="#空数据类型" class="headerlink" title="空数据类型"></a>空数据类型</h2><pre><code>function f():void {
 
-}
-  let old = obj[type];  // undefined
-  obj[type] = function () {
+}</code></pre><ul>
+<li>暂时也就想到这个，表示没有任何返回值的函数</li>
+<li>声明一个 void 类型的变量没有什么用，因为你只能将它赋值为 undefined 和 null</li>
+</ul>
+<h2 id="null类型"><a href="#null类型" class="headerlink" title="null类型"></a>null类型</h2><pre><code>let n: null = null;</code></pre><h2 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h2><pre><code>let u: undefined = undefined;</code></pre><h3 style="color:red">注意！</h3>
 
-    if (f.length === arguments.length) {
-      return f.apply(this, arguments);
-    } else {
-      return old.apply(this, arguments);
-    }
-  }
-}
+<p><strong>与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：</strong></p>
+<pre><code>// 这样不会报错
+let num1: number = undefined;
 
-let people = {
-  name: [
-    &apos;张三&apos;,
-    &apos;李四&apos;,
-  ]
-};
+// 这样也不会报错
+let u: undefined;
+let num2: number = u;</code></pre><p><strong>而 void 类型的变量不能赋值给 number 类型的变量：</strong></p>
+<pre><code>let u: void;
+let num: number = u;
 
-let find0 = function () {
-  return this.name;
-};
-
-let find1 = function (name) {
-  let arr = this.name;
-  for (let i = 0; i &lt;= arr.length; i++) {
-    if (arr[i] === name) {
-      return (arr[i] + &apos;在&apos; + i + &apos;位&apos;)
-    }
-  }
-};
-
-addMethod(people, &apos;find&apos;, find1);
-console.log(people.find(&apos;张三&apos;));</code></pre><hr>
+// Type &apos;void&apos; is not assignable to type &apos;number&apos;.</code></pre><hr>
 
   </article>
   
@@ -222,7 +217,7 @@ console.log(people.find(&apos;张三&apos;));</code></pre><hr>
 <div class="nexmoe-post-copyright">
 <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
 <strong>本文作者：</strong>小蚀月<br>
-<strong>本文链接：</strong><a href="https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/" title="https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/" target="_blank" rel="noopener">https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/</a><br>
+<strong>本文链接：</strong><a href="https://unluna.github.io/2019/09/15/TypeScript/TS简介/" title="https://unluna.github.io/2019/09/15/TypeScript/TS简介/" target="_blank" rel="noopener">https://unluna.github.io/2019/09/15/TypeScript/TS简介/</a><br>
 
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -262,7 +257,7 @@ console.log(people.find(&apos;张三&apos;));</code></pre><hr>
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568543157516"></script>
+<script src="/js/app.js?v=1568543157562"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

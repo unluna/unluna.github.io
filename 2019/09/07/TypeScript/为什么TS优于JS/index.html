@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>JQuery源码分析————&#34;处理不同数量的形参&#34;（未完待续） - 小蚀月</title>
+  <title>为什么TS优于JS - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-  <meta name="description" content="上代码function addMethod(obj, type, f) {  }   let old = obj[type];  // undefined   obj[type] = function () {      if (f.length === arguments.length) {       return f.apply(this, arguments);     } else {">
-<meta name="keywords" content="JQ,源码">
+  <meta name="description" content="V8引擎解析的过程： JS 代码首先会解析为抽象语法树（AST），然后会通过解释器或者编译器转化为 Bytecode 或者 Machine Code   JS 会首先被解析为 AST，解析的过程其实是略慢的。代码越多，解析的过程也就耗费越长，这也是我们需要压缩代码的原因之一。另外一种减少解析时间的方式是预解析，会作用于未执行的函数。 这里需要注意一点，对于函数来说，应该尽可能避免声明嵌套函数（类也">
+<meta name="keywords" content="TS,V8,编译">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery源码分析————&quot;处理不同数量的形参&quot;（未完待续）">
-<meta property="og:url" content="https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/index.html">
+<meta property="og:title" content="为什么TS优于JS">
+<meta property="og:url" content="https://unluna.github.io/2019/09/07/TypeScript/为什么TS优于JS/index.html">
 <meta property="og:site_name" content="小蚀月">
-<meta property="og:description" content="上代码function addMethod(obj, type, f) {  }   let old = obj[type];  // undefined   obj[type] = function () {      if (f.length === arguments.length) {       return f.apply(this, arguments);     } else {">
+<meta property="og:description" content="V8引擎解析的过程： JS 代码首先会解析为抽象语法树（AST），然后会通过解释器或者编译器转化为 Bytecode 或者 Machine Code   JS 会首先被解析为 AST，解析的过程其实是略慢的。代码越多，解析的过程也就耗费越长，这也是我们需要压缩代码的原因之一。另外一种减少解析时间的方式是预解析，会作用于未执行的函数。 这里需要注意一点，对于函数来说，应该尽可能避免声明嵌套函数（类也">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-09-13T13:09:54.488Z">
+<meta property="og:updated_time" content="2019-09-13T13:09:54.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery源码分析————&quot;处理不同数量的形参&quot;（未完待续）">
-<meta name="twitter:description" content="上代码function addMethod(obj, type, f) {  }   let old = obj[type];  // undefined   obj[type] = function () {      if (f.length === arguments.length) {       return f.apply(this, arguments);     } else {">
+<meta name="twitter:title" content="为什么TS优于JS">
+<meta name="twitter:description" content="V8引擎解析的过程： JS 代码首先会解析为抽象语法树（AST），然后会通过解释器或者编译器转化为 Bytecode 或者 Machine Code   JS 会首先被解析为 AST，解析的过程其实是略慢的。代码越多，解析的过程也就耗费越长，这也是我们需要压缩代码的原因之一。另外一种减少解析时间的方式是预解析，会作用于未执行的函数。 这里需要注意一点，对于函数来说，应该尽可能避免声明嵌套函数（类也">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +30,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568543157511">
+  <link rel="stylesheet" href="/css/style.css?v=1568543157570">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -165,56 +165,43 @@
         
             <img src="/images/bg-img.png">
         
-        <h1>JQuery源码分析————&#34;处理不同数量的形参&#34;（未完待续）</h1>
+        <h1>为什么TS优于JS</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月09日</a>
-    <a><i class="nexmoefont icon-areachart"></i>94 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月07日</a>
+    <a><i class="nexmoefont icon-areachart"></i>447 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/JQuery源码分析/">JQuery源码分析</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/JQ/">JQ</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/源码/">源码</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/TS/">TS</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/V8/">V8</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/编译/">编译</a>
     
   </div>
   <article>
-    <h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><pre><code>function addMethod(obj, type, f) {
-
+    <h2 id="V8引擎解析的过程："><a href="#V8引擎解析的过程：" class="headerlink" title="V8引擎解析的过程："></a>V8引擎解析的过程：</h2><ul>
+<li>JS 代码首先会解析为抽象语法树（AST），然后会通过解释器或者编译器转化为 Bytecode 或者 Machine Code</li>
+</ul>
+<ol>
+<li>JS 会首先被解析为 AST，解析的过程其实是略慢的。代码越多，解析的过程也就耗费越长，这也是我们需要压缩代码的原因之一。另外一种减少解析时间的方式是预解析，会作用于未执行的函数。</li>
+<li>这里需要注意一点，对于函数来说，应该尽可能避免声明嵌套函数（类也是函数），因为这样会造成函数的重复解析。</li>
+<li>然后 Ignition 负责将 AST 转化为 Bytecode，TurboFan 负责编译出优化后的 Machine Code，并且 Machine Code 在执行效率上优于 Bytecode 。</li>
+</ol>
+<h3 id="那么我们就产生了一个疑问，什么情况下代码会编译为-Machine-Code？"><a href="#那么我们就产生了一个疑问，什么情况下代码会编译为-Machine-Code？" class="headerlink" title="那么我们就产生了一个疑问，什么情况下代码会编译为 Machine Code？"></a>那么我们就产生了一个疑问，什么情况下代码会编译为 Machine Code？</h3><ul>
+<li><p>JS 是一门动态类型的语言，并且还有一大堆的规则。简单的加法运算代码，内部就需要考虑好几种规则，比如数字相加、字符串相加、对象和字符串相加等等。这样的情况也就势必导致了内部要增加很多判断逻辑，降低运行效率。</p>
+<pre><code>function test(x) {
+    return x + x
 }
-  let old = obj[type];  // undefined
-  obj[type] = function () {
-
-    if (f.length === arguments.length) {
-      return f.apply(this, arguments);
-    } else {
-      return old.apply(this, arguments);
-    }
-  }
-}
-
-let people = {
-  name: [
-    &apos;张三&apos;,
-    &apos;李四&apos;,
-  ]
-};
-
-let find0 = function () {
-  return this.name;
-};
-
-let find1 = function (name) {
-  let arr = this.name;
-  for (let i = 0; i &lt;= arr.length; i++) {
-    if (arr[i] === name) {
-      return (arr[i] + &apos;在&apos; + i + &apos;位&apos;)
-    }
-  }
-};
-
-addMethod(people, &apos;find&apos;, find1);
-console.log(people.find(&apos;张三&apos;));</code></pre><hr>
+  test(1);
+  test(2);
+  test(3);
+  test(4);</code></pre></li>
+</ul>
+<blockquote>
+<p>对于以上代码来说，多次调用并且参数一直传入 number 类型，那么 V8 就会认为该段代码可以编译为 Machine Code，因为你固定了类型，不需要再执行很多判断逻辑了。但是如果一旦我们传入的参数类型改变，那么 Machine Code 就会被 DeOptimized 为 Bytecode，这样就有性能上的一个损耗了。</p>
+</blockquote>
+<p><strong>本文来自冲哥，感谢分享！</strong></p>
+<hr>
 
   </article>
   
@@ -222,7 +209,7 @@ console.log(people.find(&apos;张三&apos;));</code></pre><hr>
 <div class="nexmoe-post-copyright">
 <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
 <strong>本文作者：</strong>小蚀月<br>
-<strong>本文链接：</strong><a href="https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/" title="https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/" target="_blank" rel="noopener">https://unluna.github.io/2019/08/09/JavaScript/jQuery/处理不同数量的形参/</a><br>
+<strong>本文链接：</strong><a href="https://unluna.github.io/2019/09/07/TypeScript/为什么TS优于JS/" title="https://unluna.github.io/2019/09/07/TypeScript/为什么TS优于JS/" target="_blank" rel="noopener">https://unluna.github.io/2019/09/07/TypeScript/为什么TS优于JS/</a><br>
 
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -262,7 +249,7 @@ console.log(people.find(&apos;张三&apos;));</code></pre><hr>
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568543157516"></script>
+<script src="/js/app.js?v=1568543157576"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

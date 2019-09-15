@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568380362342">
+  <link rel="stylesheet" href="/css/style.css?v=1568543157456">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -53,8 +53,8 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>6</div>
-        <div><span>标签</span>9</div>
+        <div><span>文章</span>7</div>
+        <div><span>标签</span>8</div>
         <div><span>分类</span>3</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -117,7 +117,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">2</span>
         </li>
 
         
@@ -132,7 +132,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/JQ/" style="font-size: 20px;">JQ</a> <a href="/tags/Js/" style="font-size: 10px;">Js</a> <a href="/tags/TS/" style="font-size: 10px;">TS</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/源码/" style="font-size: 20px;">源码</a> <a href="/tags/编译/" style="font-size: 10px;">编译</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/JQ/" style="font-size: 20px;">JQ</a> <a href="/tags/Js/" style="font-size: 10px;">Js</a> <a href="/tags/TS/" style="font-size: 15px;">TS</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/源码/" style="font-size: 20px;">源码</a> <a href="/tags/编译/" style="font-size: 10px;">编译</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
     
   </div>
@@ -162,7 +162,65 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
-        <a href="/2019/09/07/计算机组成原理/为什么TS优于JS/">
+        <a href="/2019/09/15/TypeScript/TS简介/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                <img src="/images/TS简介.png" alt="TS的数据类型">
+                
+                <h1>TS的数据类型</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月15日</a>
+            <a><i class="nexmoefont icon-areachart"></i>380 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/TS/">TS</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/基础/">基础</a>
+            
+        </div>
+        <article>
+            
+            <h1 id="TS的数据类型"><a href="#TS的数据类型" class="headerlink" title="TS的数据类型"></a>TS的数据类型</h1><h2 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h2><pre><code>const boln: boolean = false;</code></pre><h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><pre><code>const str: string = &apos;string&apos;;</code></pre><h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><pre><code>const num: number = 123;</code></pre><h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><pre><code>const arr1: number[] = [1, 2, 3];
+const arr2: Array&lt;string&gt; = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</code></pre><p><strong>这里我更喜欢第二种，看起来有科技感</strong></p>
+<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><pre><code>enum Colors {Red = 5, Green = 10, Yellow = 20};
+const colorName: string = Colors[5]; // &quot;Red&quot;
+const colorIndex: Colors = Colors.Green; // 10</code></pre><ul>
+<li>枚举么，我对它的理解就是map，每一个成员都有值是最好的，不赋值的话就没什么意义了</li>
+<li>如果不赋值，其中一个是数字的话，后面的会递增+1</li>
+<li>如果都不赋值，会得到索引</li>
+<li>如果其中一个是字符串还不赋值，TS会报错</li>
+</ul>
+<h2 id="任意数据类型"><a href="#任意数据类型" class="headerlink" title="任意数据类型"></a>任意数据类型</h2><pre><code>let notSure: any = &apos;123&apos;;
+notSure = 123;
+const arr3: Array&lt;any&gt; = [&apos;1&apos;, 2, true];</code></pre><h2 id="空数据类型"><a href="#空数据类型" class="headerlink" title="空数据类型"></a>空数据类型</h2><pre><code>function f():void {
+
+}</code></pre><ul>
+<li>暂时也就想到这个，表示没有任何返回值的函数</li>
+<li>声明一个 void 类型的变量没有什么用，因为你只能将它赋值为 undefined 和 null</li>
+</ul>
+<h2 id="null类型"><a href="#null类型" class="headerlink" title="null类型"></a>null类型</h2><pre><code>let n: null = null;</code></pre><h2 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h2><pre><code>let u: undefined = undefined;</code></pre><h3 style="color:red">注意！</h3>
+
+<p><strong>与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：</strong></p>
+<pre><code>// 这样不会报错
+let num1: number = undefined;
+
+// 这样也不会报错
+let u: undefined;
+let num2: number = u;</code></pre><p><strong>而 void 类型的变量不能赋值给 number 类型的变量：</strong></p>
+<pre><code>let u: void;
+let num: number = u;
+
+// Type &apos;void&apos; is not assignable to type &apos;number&apos;.</code></pre><hr>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/09/07/TypeScript/为什么TS优于JS/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
                     <img src="/images/bg-img.png" alt="为什么TS优于JS">
@@ -228,7 +286,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568380362346"></script>
+<script src="/js/app.js?v=1568543157459"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
