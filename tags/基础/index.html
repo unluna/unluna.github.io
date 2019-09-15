@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568543157421">
+  <link rel="stylesheet" href="/css/style.css?v=1568559114466">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -53,7 +53,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>7</div>
+        <div><span>文章</span>8</div>
         <div><span>标签</span>8</div>
         <div><span>分类</span>3</div>
     </div>
@@ -117,7 +117,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
-          <span class="category-list-count">2</span>
+          <span class="category-list-count">3</span>
         </li>
 
         
@@ -162,16 +162,68 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
-        <a href="/2019/09/15/TypeScript/TS简介/">
+        <a href="/2019/09/15/TypeScript/函数相关/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                <img src="/images/TS简介.png" alt="TS的数据类型">
+                <img src="/images/TS简介.png" alt="TS的函数相关">
                 
-                <h1>TS的数据类型</h1>
+                <h1>TS的函数相关</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月15日</a>
+            <a><i class="nexmoefont icon-areachart"></i>210 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/TS/">TS</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/基础/">基础</a>
+            
+        </div>
+        <article>
+            
+            <h1 id="TS的函数相关"><a href="#TS的函数相关" class="headerlink" title="TS的函数相关"></a>TS的函数相关</h1><h2 id="标准版"><a href="#标准版" class="headerlink" title="标准版"></a>标准版</h2><pre><code>// const fn: (name: string, age: number) =&gt; number = (a: string, b: number): number =&gt; b;
+const fn: (name: string, age: number) =&gt; number = (a, b) =&gt; b;
+console.log(fn(&apos;123&apos;, 123)); // 123</code></pre><ul>
+<li>“你这干啥呢？这不脱裤子放屁呢么？” ———— 我的高中数学老师</li>
+<li>说句实话，这段代码除了解决我之前看一段代码 “… =&gt; … =&gt; …”没看懂的问题外，没啥收获，谁没事这么写啊。。。</li>
+</ul>
+<h2 id="可传可不传的形参处理"><a href="#可传可不传的形参处理" class="headerlink" title="可传可不传的形参处理"></a>可传可不传的形参处理</h2><pre><code>const fn2 = (x: number, y?: number): number =&gt; {
+    if (y) {
+        return x + y;
+    } else {
+        return x
+    }
+};
+
+console.log(fn2(1));</code></pre><ul>
+<li>形参后面加个 “?” 就ok了</li>
+</ul>
+<h2 id="要传入多个形参怎么处理"><a href="#要传入多个形参怎么处理" class="headerlink" title="要传入多个形参怎么处理"></a>要传入多个形参怎么处理</h2><pre><code>const fn3 = (x: string, ...y: string[]):string =&gt; {
+    return `${x} ${y.join(&apos;-&apos;)}`
+};
+
+console.log(fn3(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;)); // &quot;a b-c-d-e&quot;</code></pre><ul>
+<li>要注意的是接收的内容是一个数组</li>
+</ul>
+<hr>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/09/14/TypeScript/TS基本数据类型/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                <img src="/images/TS简介.png" alt="TS的基本数据类型">
+                
+                <h1>TS的基本数据类型</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月14日</a>
             <a><i class="nexmoefont icon-areachart"></i>380 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
             
@@ -283,7 +335,7 @@ haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568543157424"></script>
+<script src="/js/app.js?v=1568559114472"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

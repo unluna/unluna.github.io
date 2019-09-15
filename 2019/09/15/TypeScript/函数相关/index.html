@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>JQuery源码分析————&#34;第一行代码&#34; - 小蚀月</title>
+  <title>TS的函数相关 - 小蚀月</title>
   <meta charset="UTF-8">
   <meta name="description" content="小蚀月的个人博客，这里记录着他的日常">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,18 @@
   
 
   <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-  <meta name="description" content="上代码// 把window传进来，在里面找的话会快很多 (function (window, undefined) {   undefined = 42;   alert(undefined) // 42 })(window);  undefined = 42; alert(undefined) // undefined把 window 传进来之后，会提高查找的速度，另外 undefined 也不">
-<meta name="keywords" content="JQ,源码">
+  <meta name="description" content="TS的函数相关标准版// const fn: (name: string, age: number) =&amp;gt; number = (a: string, b: number): number =&amp;gt; b; const fn: (name: string, age: number) =&amp;gt; number = (a, b) =&amp;gt; b; console.log(fn(&amp;apos;123&amp;">
+<meta name="keywords" content="基础,TS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JQuery源码分析————&quot;第一行代码&quot;">
-<meta property="og:url" content="https://unluna.github.io/2019/08/07/JavaScript/jQuery/第一行代码/index.html">
+<meta property="og:title" content="TS的函数相关">
+<meta property="og:url" content="https://unluna.github.io/2019/09/15/TypeScript/函数相关/index.html">
 <meta property="og:site_name" content="小蚀月">
-<meta property="og:description" content="上代码// 把window传进来，在里面找的话会快很多 (function (window, undefined) {   undefined = 42;   alert(undefined) // 42 })(window);  undefined = 42; alert(undefined) // undefined把 window 传进来之后，会提高查找的速度，另外 undefined 也不">
+<meta property="og:description" content="TS的函数相关标准版// const fn: (name: string, age: number) =&amp;gt; number = (a: string, b: number): number =&amp;gt; b; const fn: (name: string, age: number) =&amp;gt; number = (a, b) =&amp;gt; b; console.log(fn(&amp;apos;123&amp;">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-09-13T13:09:54.000Z">
+<meta property="og:updated_time" content="2019-09-15T14:51:30.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JQuery源码分析————&quot;第一行代码&quot;">
-<meta name="twitter:description" content="上代码// 把window传进来，在里面找的话会快很多 (function (window, undefined) {   undefined = 42;   alert(undefined) // 42 })(window);  undefined = 42; alert(undefined) // undefined把 window 传进来之后，会提高查找的速度，另外 undefined 也不">
+<meta name="twitter:title" content="TS的函数相关">
+<meta name="twitter:description" content="TS的函数相关标准版// const fn: (name: string, age: number) =&amp;gt; number = (a: string, b: number): number =&amp;gt; b; const fn: (name: string, age: number) =&amp;gt; number = (a, b) =&amp;gt; b; console.log(fn(&amp;apos;123&amp;">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +30,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568559114565">
+  <link rel="stylesheet" href="/css/style.css?v=1568559114652">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -163,30 +163,46 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-            <img src="/images/bg-img.png">
+        <img src="/images/TS简介.png">
         
-        <h1>JQuery源码分析————&#34;第一行代码&#34;</h1>
+        <h1>TS的函数相关</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月07日</a>
-    <a><i class="nexmoefont icon-areachart"></i>55 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月15日</a>
+    <a><i class="nexmoefont icon-areachart"></i>210 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/JQuery源码分析/">JQuery源码分析</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/JQ/">JQ</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/源码/">源码</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/TS/">TS</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/基础/">基础</a>
     
   </div>
   <article>
-    <h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><pre><code>// 把window传进来，在里面找的话会快很多
-(function (window, undefined) {
-  undefined = 42;
-  alert(undefined) // 42
-})(window);
+    <h1 id="TS的函数相关"><a href="#TS的函数相关" class="headerlink" title="TS的函数相关"></a>TS的函数相关</h1><h2 id="标准版"><a href="#标准版" class="headerlink" title="标准版"></a>标准版</h2><pre><code>// const fn: (name: string, age: number) =&gt; number = (a: string, b: number): number =&gt; b;
+const fn: (name: string, age: number) =&gt; number = (a, b) =&gt; b;
+console.log(fn(&apos;123&apos;, 123)); // 123</code></pre><ul>
+<li>“你这干啥呢？这不脱裤子放屁呢么？” ———— 我的高中数学老师</li>
+<li>说句实话，这段代码除了解决我之前看一段代码 “… =&gt; … =&gt; …”没看懂的问题外，没啥收获，谁没事这么写啊。。。</li>
+</ul>
+<h2 id="可传可不传的形参处理"><a href="#可传可不传的形参处理" class="headerlink" title="可传可不传的形参处理"></a>可传可不传的形参处理</h2><pre><code>const fn2 = (x: number, y?: number): number =&gt; {
+    if (y) {
+        return x + y;
+    } else {
+        return x
+    }
+};
 
-undefined = 42;
-alert(undefined) // undefined</code></pre><p><strong>把 window 传进来之后，会提高查找的速度，另外 undefined 也不会搞事</strong></p>
+console.log(fn2(1));</code></pre><ul>
+<li>形参后面加个 “?” 就ok了</li>
+</ul>
+<h2 id="要传入多个形参怎么处理"><a href="#要传入多个形参怎么处理" class="headerlink" title="要传入多个形参怎么处理"></a>要传入多个形参怎么处理</h2><pre><code>const fn3 = (x: string, ...y: string[]):string =&gt; {
+    return `${x} ${y.join(&apos;-&apos;)}`
+};
+
+console.log(fn3(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;)); // &quot;a b-c-d-e&quot;</code></pre><ul>
+<li>要注意的是接收的内容是一个数组</li>
+</ul>
 <hr>
 
   </article>
@@ -195,7 +211,7 @@ alert(undefined) // undefined</code></pre><p><strong>把 window 传进来之后�
 <div class="nexmoe-post-copyright">
 <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
 <strong>本文作者：</strong>小蚀月<br>
-<strong>本文链接：</strong><a href="https://unluna.github.io/2019/08/07/JavaScript/jQuery/第一行代码/" title="https://unluna.github.io/2019/08/07/JavaScript/jQuery/第一行代码/" target="_blank" rel="noopener">https://unluna.github.io/2019/08/07/JavaScript/jQuery/第一行代码/</a><br>
+<strong>本文链接：</strong><a href="https://unluna.github.io/2019/09/15/TypeScript/函数相关/" title="https://unluna.github.io/2019/09/15/TypeScript/函数相关/" target="_blank" rel="noopener">https://unluna.github.io/2019/09/15/TypeScript/函数相关/</a><br>
 
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -235,7 +251,7 @@ alert(undefined) // undefined</code></pre><p><strong>把 window 传进来之后�
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568559114568"></script>
+<script src="/js/app.js?v=1568559114657"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

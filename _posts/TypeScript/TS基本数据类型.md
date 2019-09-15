@@ -1,6 +1,6 @@
 ---
-title: TS的数据类型
-date: 2019-09-15 17:07:32
+title: TS的基本数据类型
+date: 2019-09-14 17:07:32
 tags: [TS,基础]
 categories: TypeScript
 cover: /images/TS简介.png
