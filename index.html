@@ -29,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568559114405">
+  <link rel="stylesheet" href="/css/style.css?v=1568680405558">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -224,8 +224,8 @@ console.log(fn3(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apo
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月14日</a>
-            <a><i class="nexmoefont icon-areachart"></i>380 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            <a><i class="nexmoefont icon-areachart"></i>426 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
             
@@ -245,7 +245,7 @@ const colorIndex: Colors = Colors.Green; // 10</code></pre><ul>
 <li>如果都不赋值，会得到索引</li>
 <li>如果其中一个是字符串还不赋值，TS会报错</li>
 </ul>
-<h2 id="任意数据类型"><a href="#任意数据类型" class="headerlink" title="任意数据类型"></a>任意数据类型</h2><pre><code>let notSure: any = &apos;123&apos;;
+<h2 id="变体变量"><a href="#变体变量" class="headerlink" title="变体变量"></a>变体变量</h2><pre><code>let notSure: any = &apos;123&apos;;
 notSure = 123;
 const arr3: Array&lt;any&gt; = [&apos;1&apos;, 2, true];</code></pre><h2 id="空数据类型"><a href="#空数据类型" class="headerlink" title="空数据类型"></a>空数据类型</h2><pre><code>function f():void {
 
@@ -255,17 +255,25 @@ const arr3: Array&lt;any&gt; = [&apos;1&apos;, 2, true];</code></pre><h2 id="空
 </ul>
 <h2 id="null类型"><a href="#null类型" class="headerlink" title="null类型"></a>null类型</h2><pre><code>let n: null = null;</code></pre><h2 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h2><pre><code>let u: undefined = undefined;</code></pre><h3 style="color:red">注意！</h3>
 
-<p><strong>与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：</strong></p>
+<p><strong>与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量，但是不能更改自己：</strong></p>
 <pre><code>// 这样不会报错
 let num1: number = undefined;
 
 // 这样也不会报错
 let u: undefined;
-let num2: number = u;</code></pre><p><strong>而 void 类型的变量不能赋值给 number 类型的变量：</strong></p>
+let num2: number = u;
+
+// 这样会报错
+let hh:undefined;
+hh=8;
+// error TS2322: Type &apos;8&apos; is not assignable to type &apos;undefined&apos;.</code></pre><p><strong>而 void 类型的变量不能赋值给 number 类型的变量：</strong></p>
 <pre><code>let u: void;
 let num: number = u;
 
-// Type &apos;void&apos; is not assignable to type &apos;number&apos;.</code></pre><hr>
+// Type &apos;void&apos; is not assignable to type &apos;number&apos;.</code></pre><h2 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h2><pre><code>let hh: string | number;
+hh = 8;
+hh=&apos;8&apos;;</code></pre><h3 style="color:red">注意！</h3>
+***
 
             
         </article>
@@ -578,7 +586,7 @@ haha.sayColor();</code></pre><p><strong>没什么好讲的，核心就是Object.
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568559114412"></script>
+<script src="/js/app.js?v=1568680405563"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

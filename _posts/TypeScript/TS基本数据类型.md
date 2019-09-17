@@ -30,7 +30,7 @@ cover: /images/TS简介.png
 - 如果都不赋值，会得到索引
 - 如果其中一个是字符串还不赋值，TS会报错
 
-## 任意数据类型
+## 变体变量
     let notSure: any = '123';
     notSure = 123;
     const arr3: Array<any> = ['1', 2, true];
@@ -50,7 +50,7 @@ cover: /images/TS简介.png
 
 <h3 style="color:red">注意！</h3>
 
-**与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量：**
+**与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 类型的变量，可以赋值给 number 类型的变量，但是不能更改自己：**
 
     // 这样不会报错
     let num1: number = undefined;
@@ -59,11 +59,21 @@ cover: /images/TS简介.png
     let u: undefined;
     let num2: number = u;
 
+    // 这样会报错
+    let hh:undefined;
+    hh=8;
+    // error TS2322: Type '8' is not assignable to type 'undefined'.
+
 **而 void 类型的变量不能赋值给 number 类型的变量：**
 
     let u: void;
     let num: number = u;
 
     // Type 'void' is not assignable to type 'number'.
+## 联合类型
+    let hh: string | number;
+    hh = 8;
+    hh='8';
 
+<h3 style="color:red">注意！</h3>
 ***
